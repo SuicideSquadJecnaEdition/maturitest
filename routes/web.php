@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/sign-in', [AuthController::class, 'signIn'])->name('signIn.index');
+
+Route::get('/main', [QuestionController::class, 'main'])->name('questions.main');
+Route::get('/question', [QuestionController::class, 'question'])->name('questions.question');
+Route::get('/subject', [QuestionController::class, 'subject'])->name('questions.subject');
+Route::get('test', [QuestionController::class, 'test'])->name('questions.test');
+
+Route::get('/admin/listing', [AdminController::class, 'listing'])->name('admin.listing');
+Route::get('/admin/update', [AdminController::class, 'update'])->name('admin.update');

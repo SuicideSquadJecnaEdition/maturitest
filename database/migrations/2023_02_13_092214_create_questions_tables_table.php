@@ -66,6 +66,7 @@ return new class extends Migration
 
         Schema::create('question_block_imgs', function (Blueprint $table) {
             $table->increments('question_block_img_id');
+            $table->string('path')->nullable(false);
             $table->unsignedInteger('fk_questionblockimg_questionblock');
             $table->timestamp('created_at', 0)->useCurrent();
             $table->timestamp('updated_at', 0)->useCurrent();

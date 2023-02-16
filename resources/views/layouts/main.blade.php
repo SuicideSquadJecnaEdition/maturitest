@@ -17,7 +17,7 @@
     <header class="position-fixed w-100" style="top: 0; z-index: 101">
         <nav class="d-flex align-items-center bg-light border justify-content-between p-1">
             <h1 class="text-white bg-info p-1 m-0 rounded border border-dark">Maturitest</h1>
-            <a data-toggle="collapse" aria-controls="collapseUser" aria-expanded="false" href="#collapseUser"><img style="width: 64px" src="{{  asset('/img/user-icon.svg') }}"></a>
+            <a data-toggle="collapse" aria-controls="collapseUser" aria-expanded="false" href="#collapseUser"><img style="width: 64px" src="{{  asset('/img/user-icon.svg') }}" alt="user_icon"></a>
         </nav>
         <div class="collapse" id="collapseUser">
             <div class="card card-body d-inline-block float-right" style="max-width: 248px">

@@ -19,10 +19,7 @@ use Illuminate\Support\Facades\Route;
 | NEJDULEZITEJSI vec, aby vam routa fungovala je vymazani cache -> php artisan optimize
 */
 
-// toto je defaultni / jina moznost psani route, ale tu nebudeme pouzivat.
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'main');
 
 Route::get('/sign-in', [AuthController::class, 'signIn'])->name('signIn.index');
 

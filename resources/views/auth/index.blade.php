@@ -7,7 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>login</title>
 </head>
-<body>
-    <p>Prihlaste se prosim</p>
+<body class="d-flex justify-content-center align-items-center">
+<h1 class="mt-5 pt-5 pb-2 text-center">ADMIN</h1>
+
+<div class="card card-body" style="max-width: 248px">
+    <form class="d-flex flex-column" style="gap: 20px;">
+        <input class="text-center" type="text" placeholder="Jmeno">
+        <input class="text-center" type="password" placeholder="Heslo">
+
+        <button class="btn btn-danger" type="submit">Přihlásit</button>
+    </form>
+</div>
 </body>
 </html>

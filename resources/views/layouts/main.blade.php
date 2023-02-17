@@ -43,7 +43,7 @@
 
     <footer class="text-muted mt-5 d-flex border-top flex-column border-dark justify-content-center">
         <div class="p-2 text-center">
-            <p class="m-0"><u>Kontakty ohledně problémů/poznatků stránky:</u></p>
+            <p class="m-0">Kontakty ohledně problémů/poznatků stránky:</p>
             <div class="d-block justify-content-center d-md-flex" style="gap: 20px">
                 <p class="m-0"><b>Designu</b>: bales@spsejecna.cz</p>
                 <p class="m-0"><b>Nefunkčnosti funkcionality stránky</b>: bohac@spsejecna.cz</p>

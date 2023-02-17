@@ -62,13 +62,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselOneIndicator" role="button" data-slide="prev">
@@ -97,13 +97,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{  asset("/img/test-img.jpg") }}">
+                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselTwoIndicator" role="button" data-slide="prev">

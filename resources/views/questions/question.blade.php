@@ -123,7 +123,7 @@
             <p><span class="font-weight-bold">1.</span> Idk idk idk test otázka d awdaw d <input type="text"></p>
             <p><span class="font-weight-bold">2.</span> Idk idk idk test otázka dwadwa dawd awd <input type="text"></p>
             <p><span class="font-weight-bold">3.</span> Idk idk idk test otázka dwad awd awd  dawd wa <input type="text"></p>
-            <p><span class="font-weight-bold">4.</span> Idk idk i   dk test otázka awdwa <input type="text"></p>
+            <p><span class="font-weight-bold">4.</span> Idk idk idk test otázka awdwa <input type="text"></p>
             <p><span class="font-weight-bold">5.</span> Idk idk idk test otázka <input type="text"></p>
 
             <div class="text-center">

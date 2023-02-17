@@ -24,7 +24,7 @@ Route::redirect('/', 'main');
 Route::get('/sign-in', [AuthController::class, 'signIn'])->name('signIn.index');
 
 Route::get('/main', [QuestionController::class, 'main'])->name('questions.main');
-Route::get('/question', [QuestionController::class, 'question'])->name('questions.question');
+Route::get('/question/{question}', [QuestionController::class, 'question'])->name('questions.question');
 Route::get('/subject', [QuestionController::class, 'subject'])->name('questions.subject');
 Route::get('test', [QuestionController::class, 'test'])->name('questions.test');
 

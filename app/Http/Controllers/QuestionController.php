@@ -13,8 +13,8 @@ class QuestionController extends Controller{
         $subjects = Subject::all();
         return view('questions.main', ['questions' => $questions, 'subjects' => $subjects]);
     }
-    public function question(){
-        return view('questions.question');
+    public function question(Question $question){
+        return view('questions.question', ['question' => $question]);
     }
     public function subject(){
         return view('questions.subject');

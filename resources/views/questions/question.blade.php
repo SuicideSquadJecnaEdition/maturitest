@@ -46,7 +46,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="h1 text-center">--- JMÉNO OTÁZKY ---</h2>
+        <h2 class="h1 text-center">{{$question->name}}</h2>
         <div class="mt-5 mb-5">
 
             <h3>--- Header otázky ---</h3>

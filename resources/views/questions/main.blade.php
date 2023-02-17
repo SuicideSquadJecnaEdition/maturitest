@@ -34,6 +34,7 @@
 
     <div class="container">
     @foreach($subjects as $subject)
+        <?php $question_number = 1; ?>
         <a data-toggle="collapse" aria-controls="ukol{{$subject->name}}" aria-expanded="false" href="#ukol{{$subject->name}}" style="text-decoration: none; cursor: pointer" class="text-center bg-secondary rounded mt-3 d-flex justify-content-around">
             <img style="width: 32px" src="{{ asset("/img/arrow-icon.svg")  }}" alt="arrow_icon">
             <p class="p-5 h1 text-light">{{$subject->name}}</p>
@@ -41,9 +42,10 @@
         </a>
         <div class="collapse bg-light border" id="ukol{{$subject->name}}">
             <div class="d-flex flex-column">
-                @foreach($questions as $question)
+                    @foreach($questions as $question)
                     @if($question->fk_question_subject == $subject->subject_id)
-                    <a href="#" class="m-1 text-dark"><span class="text-primary font-weight-bold">{{$question->question_id}}</span> {{$question->name}}</a>
+                    <a href="{{route('questions.question', ['question' => $question->question_id])}}" class="m-1 text-dark"><span class="text-primary font-weight-bold">{{$question_number}}</span> {{$question->name}}</a>
+                        <?php $question_number++; ?>
                     @endif
                 @endforeach
             </div>

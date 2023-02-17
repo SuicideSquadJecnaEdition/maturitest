@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\QuestionTest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class QuestionController extends Controller{
         return view('questions.main', ['questions' => $questions, 'subjects' => $subjects]);
     }
     public function question(Question $question){
-        return view('questions.question', ['question' => $question]);
+        $question_tests = QuestionTest::find($question);
+        return view('questions.question', ['question' => $question, 'question_test' => $question_tests]);
     }
     public function subject(){
         return view('questions.subject');

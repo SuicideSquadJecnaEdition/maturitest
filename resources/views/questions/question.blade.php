@@ -118,8 +118,15 @@
         </div>
 
         <h3 class="mb-3 font-weight-bold">Otestujte své znalosti!</h3>
-
         <form>
+        <!-- $question->question / answear
+                foreach($questions as $question)
+                    @if($question->fk_question_subject == $subject->subject_id)
+                    <a href="{{route('questions.question', ['question' => $question->question_id])}}" class="m-1 text-dark"><span class="font-weight-bold">{{$question_number}}</span> {{$question->name}}</a>
+                        <?php $question_number++; ?>
+                    @endif
+                @endforeach-->
+        
             <p><label for="otazka1" class="font-weight-bold">1.</label> Idk idk idk test otázka d awdaw d <input id="otazka1" type="text"></p>
             <p><label for="otazka2" class="font-weight-bold">2.</label> Idk idk idk test otázka dwadwa dawd awd <input id="otazka2" type="text"></p>
             <p><label for="otazka3" class="font-weight-bold">3.</label> Idk idk idk test otázka dwad awd awd  dawd wa <input id="otazka3" type="text"></p>

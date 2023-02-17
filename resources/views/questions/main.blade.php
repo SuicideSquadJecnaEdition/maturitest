@@ -44,7 +44,7 @@
             <div class="d-flex flex-column">
                     @foreach($questions as $question)
                     @if($question->fk_question_subject == $subject->subject_id)
-                    <a href="{{route('questions.question', ['question' => $question->question_id])}}" class="m-1 text-dark"><span class="text-primary font-weight-bold">{{$question_number}}</span> {{$question->name}}</a>
+                    <a href="{{route('questions.question', ['question' => $question->question_id])}}" class="m-1 text-dark"><span class="font-weight-bold">{{$question_number}}</span> {{$question->name}}</a>
                         <?php $question_number++; ?>
                     @endif
                 @endforeach

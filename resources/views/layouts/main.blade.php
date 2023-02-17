@@ -22,8 +22,10 @@
         <div class="collapse" id="collapseUser">
             <div class="card card-body d-inline-block float-right" style="max-width: 248px">
                 <form class="d-flex flex-column" style="gap: 20px;">
-                    <input class="text-center" type="text" placeholder="Jmeno">
-                    <input class="text-center" type="password" placeholder="Heslo">
+                    <label class="d-none" for="jmeno">Jmeno</label>
+                    <input class="text-center" id="jmeno" type="text" placeholder="Jmeno">
+                    <label class="d-none" for="heslo">Heslo</label>
+                    <input class="text-center" id="heslo" type="password" placeholder="Heslo">
 
                     <button class="btn btn-danger" type="submit">Přihlásit</button>
                 </form>

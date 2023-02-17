@@ -55,7 +55,8 @@
             <small class="m-0">Tato webová stránka je školní projekt školy SPŠE Ječná.</small>
         </div>
 
-        <p class="text-center text-muted mt-2">&copy; Filip Ferencei, Petr Boháč, Antonín Báleš, Ondřej Hána | C4a</p>
+        <a href="#" class="text-center text-muted mt-2">Prohlášení o přístupnosti</a>
+        <p class="text-center text-muted mt-2">&copy; PD | Filip Ferencei, Petr Boháč, Antonín Báleš, Ondřej Hána | C4a</p>
     </footer>
 
 

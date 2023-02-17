@@ -37,7 +37,7 @@
         <?php $question_number = 1; ?>
         <a data-toggle="collapse" aria-controls="ukol{{$subject->name}}" aria-expanded="false" href="#ukol{{$subject->name}}" style="text-decoration: none; cursor: pointer" class="text-center bg-secondary rounded mt-3 d-flex justify-content-around">
             <img style="width: 32px" src="{{ asset("/img/arrow-icon.svg")  }}" alt="arrow_icon">
-            <p class="p-5 h1 text-light">{{$subject->name}}</p>
+            <h2 class="p-5 h1 text-light">{{$subject->name}}</h2>
             <img style="width: 32px" src="{{ asset("/img/arrow-icon.svg")  }}" alt="arrow_icon">
         </a>
         <div class="collapse bg-light border" id="ukol{{$subject->name}}">

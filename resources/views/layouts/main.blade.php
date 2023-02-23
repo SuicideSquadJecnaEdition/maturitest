@@ -16,7 +16,7 @@
 <body>
     <header class="position-fixed w-100" style="top: 0; z-index: 101">
         <nav class="d-flex align-items-center bg-light border justify-content-between p-1">
-            <h1 class="text-white bg-info p-1 m-0 rounded border border-dark"><a href="{{ route("questions.main") }}">Maturitest</a></h1>
+            <h1 class="text-white bg-info p-1 m-0 rounded border border-dark"><a href="{{ route("questions.main") }}" style="color: #1a202c; text-decoration: none;">Maturitest</a></h1>
         </nav>
         <div class="collapse" id="collapseUser">
             <div class="card card-body d-inline-block float-right" style="max-width: 248px">

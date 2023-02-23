@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\QuestionBlock;
 use App\Models\QuestionTest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
@@ -16,7 +17,14 @@ class QuestionController extends Controller{
     }
     public function question(Question $question){
         $question_tests = QuestionTest::where('fk_questiontest_question', $question->question_id)->get();
-        return view('questions.question', ['question' => $question, 'question_test' => $question_tests]);
+        $question_block = QuestionBlock::where('fk_questionblock_question', $question->question_id)->get();
+        $header = 'Otázku připravujeme..';
+        $text = '';
+        foreach ($question_block as $qb){
+            $header = $qb->header;
+            $text = $qb->text;
+        }
+        return view('questions.question', ['question' => $question, 'question_test' => $question_tests, 'header' => $header, 'text' => $text]);
     }
     public function subject(){
         return view('questions.subject');

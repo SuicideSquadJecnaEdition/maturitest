@@ -53,33 +53,6 @@
             <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis pulvinar. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Phasellus et lorem id felis nonummy placerat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Fusce suscipit libero eget elit. Praesent dapibus. Aliquam ante. Integer imperdiet lectus quis justo. Fusce suscipit libero eget elit. Quisque porta. Sed convallis magna eu sem.
             </p>
-
-            <div id="carouselOneIndicator"  class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselOneIndicator" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselOneIndicator" data-slide-to="1"></li>
-                    <li data-target="#carouselOneIndicator" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselOneIndicator" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselOneIndicator" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
         </div>
 
         <div class="mt-5 mb-5">
@@ -88,48 +61,29 @@
             <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis pulvinar. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Phasellus et lorem id felis nonummy placerat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Fusce suscipit libero eget elit. Praesent dapibus. Aliquam ante. Integer imperdiet lectus quis justo. Fusce suscipit libero eget elit. Quisque porta. Sed convallis magna eu sem.
             </p>
-
-            <div id="carouselTwoIndicator"  class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselTwoIndicator" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselTwoIndicator" data-slide-to="1"></li>
-                    <li data-target="#carouselTwoIndicator" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" alt="contentImage" src="{{  asset("/img/test-img.jpg") }}">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselTwoIndicator" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselTwoIndicator" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
         </div>
 
         <h3 class="mb-3 font-weight-bold">Otestujte své znalosti!</h3>
 
-        <form>
-            <p><label for="otazka1" class="font-weight-bold">1.</label> Idk idk idk test otázka d awdaw d <input id="otazka1" type="text"></p>
-            <p><label for="otazka2" class="font-weight-bold">2.</label> Idk idk idk test otázka dwadwa dawd awd <input id="otazka2" type="text"></p>
-            <p><label for="otazka3" class="font-weight-bold">3.</label> Idk idk idk test otázka dwad awd awd  dawd wa <input id="otazka3" type="text"></p>
-            <p><label for="otazka4" class="font-weight-bold">4.</label> Idk idk idk test otázka awdwa <input id="otazka4" type="text"></p>
-            <p><label for="otazka5" class="font-weight-bold">5.</label> Idk idk idk test otázka <input id="otazka5" type="text"></p>
+        <form id="test_form" method="POST" action="{{route('check-answers', ['question_id' => $question->question_id])}}">
+            <input type="hidden" value="{{$question->question_id}}">
+            @csrf
+            <?php $test_number = 1; ?>
+            @foreach($question_test as $test)
 
+                <p>
+                    <label for="odpoved{{$test->question_test_id}}" class="font-weight-bold">{{$test_number}}</label>
+                    {{$test->question}}
+                    <input id="odpoved{{$test->question_test_id}}" name="odpoved{{$test->question_test_id}}" type="text">
+                </p>
+                    <?php $test_number++; ?>
+            @endforeach
             <div class="text-center">
-                <button type="submit" class="btn btn-danger">Zkontrolovat</button>
+                <button type="submit" class="btn btn-danger" id="check-btn">Zkontrolovat</button>
             </div>
         </form>
+        <div id="goodAnswers"></div>
+        <div id="badAnswers"></div>
     </div>
 
 @endsection

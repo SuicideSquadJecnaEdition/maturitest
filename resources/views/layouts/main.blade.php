@@ -17,7 +17,6 @@
     <header class="position-fixed w-100" style="top: 0; z-index: 101">
         <nav class="d-flex align-items-center bg-light border justify-content-between p-1">
             <h1 class="text-white bg-info p-1 m-0 rounded border border-dark"><a href="{{ route("questions.main") }}">Maturitest</a></h1>
-            <a data-toggle="collapse" aria-controls="collapseUser" aria-expanded="false" href="#collapseUser"><img style="width: 64px" src="{{  asset('/img/user-icon.svg') }}" alt="user_icon"></a>
         </nav>
         <div class="collapse" id="collapseUser">
             <div class="card card-body d-inline-block float-right" style="max-width: 248px">
@@ -55,15 +54,37 @@
             <small class="m-0">Tato webová stránka je školní projekt školy SPŠE Ječná.</small>
         </div>
 
-        <a href="#" class="text-center text-muted mt-2">Prohlášení o přístupnosti</a>
+        <a href="{{route('question.pristupnost')}}" class="text-center text-muted mt-2">Prohlášení o přístupnosti</a>
         <p class="text-center text-muted mt-2">&copy; PD | Filip Ferencei, Petr Boháč, Antonín Báleš, Ondřej Hána | C4a</p>
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script>
-        @yield('script')
+
+        $(document).ready(function (){
+           $('#test_form').submit(function (e){
+              e.preventDefault();
+              $.ajax({
+                 type: "POST",
+                 url: "{{route('check-answers', ['question_id' => $question->question_id])}}",
+                  data: $('#test_form').serialize(),
+                  success: function (response){
+                     const sum = response.split(',')
+                      $('#goodAnswers').html("Počet správných odpovědí:" + sum[0])
+                      $('#badAnswers').html("Počet špatných odpovědí:" + (sum[1] - sum[0]))
+                  },
+                  error: function (error){
+                      $('#goodAnswers').html("Něco se pokazilo, omlouváme se za potíže.")
+                     console.log(error)
+                  },
+              });
+           });
+        });
     </script>
 </body>
 </html>

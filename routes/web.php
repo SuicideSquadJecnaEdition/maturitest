@@ -26,7 +26,10 @@ Route::get('/sign-in', [AuthController::class, 'signIn'])->name('signIn.index');
 Route::get('/main', [QuestionController::class, 'main'])->name('questions.main');
 Route::get('/question/{question}', [QuestionController::class, 'question'])->name('questions.question');
 Route::get('/subject', [QuestionController::class, 'subject'])->name('questions.subject');
-Route::get('test', [QuestionController::class, 'test'])->name('questions.test');
+Route::get('/test', [QuestionController::class, 'test'])->name('questions.test');
+Route::get('/pristupnost', [QuestionController::class, 'pristupnost'])->name('question.pristupnost');
+
+Route::post('/check/answers/{question_id}', [QuestionController::class, 'check_test'])->name('check-answers');
 
 Route::get('/admin/listing', [AdminController::class, 'listing'])->name('admin.listing');
 Route::get('/admin/update', [AdminController::class, 'update'])->name('admin.update');

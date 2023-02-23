@@ -15,7 +15,7 @@ class QuestionController extends Controller{
         return view('questions.main', ['questions' => $questions, 'subjects' => $subjects]);
     }
     public function question(Question $question){
-        $question_tests = QuestionTest::find($question);
+        $question_tests = QuestionTest::where('fk_questiontest_question', $question->question_id)->get();
         return view('questions.question', ['question' => $question, 'question_test' => $question_tests]);
     }
     public function subject(){
@@ -24,4 +24,28 @@ class QuestionController extends Controller{
     public function test(){
         return view('questions.test');
     }
+    public function pristupnost(){
+        return view('importantFiles.pristupnost');
+    }
+
+    public function check_test(Request $request){
+        $good_answer = 0;
+        $bad_answer = -1;
+        $tests = QuestionTest::where('fk_questiontest_question',$request->question_id)->get();
+        $answers = array();
+        foreach ($tests as $test){
+            $answers[] = $test;
+        }
+        $temp_count = 0;
+        for ($i = 1; $i < count($request->request); $i++){
+            $temp = "odpoved" . $i;
+            $user_answer = $request->$temp;
+            $temp_count++;
+            if (strtolower(trim($user_answer)) == strtolower(trim($answers[$i-1]->answer))){
+                $good_answer++;
+            }
+        }
+        return $good_answer . ',' . $temp_count;
+    }
+
 }

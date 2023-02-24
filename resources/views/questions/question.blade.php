@@ -4,45 +4,6 @@
     <title>Otázka</title>
 @endsection
 
-{{--
-  TEMPLATE PRO OTÁZKU:
-
-<div class="mt-5 mb-5">
-
-            <h3>[[otazkaName]]</h3>
-            <p>[[otazkaText]]</p>
-
-            <div id="[[otazkaName]]Indicator"  class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-
-                foreach(img in otazka) {
-                <li data-target="#[[otazkaName]]Indicator" data-slide-to="[[cisloForEache]]" [[class="active" -- POUZE PRO PRVNI PRINT]]></li>
-                }
-
-                </ol>
-                <div class="carousel-inner">
-
-                foreach(img in otazka) {
-                <div class="carousel-item [[active - jen pro první print]]">
-                        <img class="d-block w-100" src="{{  asset("[[otazkaImgPath]]") }}">
-                    </div>
-                }
-
-                </div>
-                <a class="carousel-control-prev" href="#[[otazkaName]]Indicator" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#[[otazkaName]]Indicator" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-
-
-  --}}
-
 
 @section('content')
     <div class="container">
@@ -80,5 +41,23 @@
 @endsection
 
 @section('script')
-
+    $(document).ready(function (){
+        $('#test_form').submit(function (e){
+            e.preventDefault();
+                $.ajax({
+                type: "POST",
+                url: "{{route('check-answers', ['question_id' => $question->question_id])}}",
+                data: $('#test_form').serialize(),
+                success: function (response){
+                const sum = response.split(',')
+                $('#goodAnswers').html("Počet správných odpovědí:" + sum[0])
+                $('#badAnswers').html("Počet špatných odpovědí:" + (sum[1] - sum[0]))
+                },
+                error: function (error){
+                $('#goodAnswers').html("Něco se pokazilo, omlouváme se za potíže.")
+                console.log(error)
+                },
+            });
+        });
+    });
 @endsection

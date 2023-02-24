@@ -65,26 +65,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script>
-
-        $(document).ready(function (){
-           $('#test_form').submit(function (e){
-              e.preventDefault();
-              $.ajax({
-                 type: "POST",
-                 url: "{{route('check-answers', ['question_id' => $question->question_id])}}",
-                  data: $('#test_form').serialize(),
-                  success: function (response){
-                     const sum = response.split(',')
-                      $('#goodAnswers').html("Počet správných odpovědí:" + sum[0])
-                      $('#badAnswers').html("Počet špatných odpovědí:" + (sum[1] - sum[0]))
-                  },
-                  error: function (error){
-                      $('#goodAnswers').html("Něco se pokazilo, omlouváme se za potíže.")
-                     console.log(error)
-                  },
-              });
-           });
-        });
+        @yield('script')
     </script>
 </body>
 </html>

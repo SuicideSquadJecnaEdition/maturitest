@@ -62,9 +62,9 @@
                     <?php $test_number = 1; ?>
                 @foreach($question_test as $test)
                     <p>
-                        <label for="odpoved{{$test->question_test_id}}" class="font-weight-bold">{{$test_number}}</label>
+                        <label for="odpoved{{$test_number}}" class="font-weight-bold">{{$test_number}}</label>
                         {{$test->question}}
-                        <input id="odpoved{{$test->question_test_id}}" name="odpoved{{$test->question_test_id}}" type="text">
+                        <input id="odpoved{{$test_number}}" name="odpoved{{$test_number}}" type="text">
                     </p>
                         <?php $test_number++; ?>
                 @endforeach

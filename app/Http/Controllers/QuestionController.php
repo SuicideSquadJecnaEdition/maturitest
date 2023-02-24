@@ -38,7 +38,6 @@ class QuestionController extends Controller{
 
     public function check_test(Request $request){
         $good_answer = 0;
-        $bad_answer = -1;
         $tests = QuestionTest::where('fk_questiontest_question',$request->question_id)->get();
         $answers = array();
         foreach ($tests as $test){
